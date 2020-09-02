@@ -5,6 +5,10 @@ This guide is for all app developers who wish to add a custom keyboard functiona
 Note - Minimum version of supported Android platform is SDK level 21
 
 ### Step 1: Adding the BobbleIME SDK to your Project
+![alt text](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module1.png)
+![alt text](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module2.png)
+![alt text](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module3.png)
+
 ##### Option 1: Pulling the Latest SDK via JCenter
 If you are using Gradle to build your Android applications, you can pull the latest version of the SDK from JCenter as described below:
 
