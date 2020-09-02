@@ -35,11 +35,9 @@ Once the keyboard modules are succesfully downloaded, the keyboard starts functi
 
 ### Step 1: Adding a dynamic module to your Project
 Within Android Studio, navigate to **File -> New -> New Module** and follow on screen instructions as follows
-
-![alt text](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module1.png)
-![alt text](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module2.png)
-![alt text](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module3.png)
-
+Setup 1             |  Setup 2             |  Setup 3
+:-------------------------:|:-------------------------:|:-------------------------:
+![](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module1.png)  |  ![](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module2.png)  |  ![](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module3.png) 
 ### Step 2: Gradle setup
 If you are using Gradle to build your Android applications, you can pull the latest version of the SDK from JCenter as described below:
 
