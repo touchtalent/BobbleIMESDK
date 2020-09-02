@@ -3,7 +3,7 @@
 This guide is for all app developers who wish to add a custom keyboard functionality in their Android apps using the Bobble IME (Input Method Editor) SDK via dynamic delivery. Before you begin integrating the SDK into your app, please email us at android.master@bobble.ai to get the license key in order to avail complete functionalities of the SDK.
 
 
-Note - Minimum version of supported Android platform is SDK level 21
+Note - Minimum version of supported Android platform is SDK level 23
 
 Dyamic delivery is a delivery mechanism by Play Store where specific modules of your app can be downloaded on user's device after the core module has been downloaded. This gives developers, the freedom to opt for a small download size. This is done by ensuring that the additional features, like this custom keybord, are delivered to users upon their choice. We provide support for such implementation by dividing our SDK into 2 parts - Full size SDK which can added to a dynamic module and an ultra-lightweight support SDK (to be added to main module) to provide necessary support implementations. Please read below on how to integrate them.
 
