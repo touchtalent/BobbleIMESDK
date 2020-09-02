@@ -116,7 +116,7 @@ Inside onAttachBaseContext() method of your Application class, install SplitComp
 SplitCompat.install(context); 
 ```
 
-### Step 6: Initialise SDK
+### Step 7: Initialise SDK
 
 Inside onCreate() method of your Application class, initialise the SDK by calling
 ```java
@@ -127,7 +127,7 @@ BobbleIMESDK.initialise(applicationContext, <LICENSE_KEY>, <module-name>)
 
 If you don't have a Licence Key for your host app, you need to request one. Please note that Licence Key do not superimpose any expiration date, but each Licence Key is bounded to host app package name.
 
-### Step 7: Create your custom IME Class
+### Step 8: Create your custom IME Class
 Last step would be to create the custom class declared in the manifest above.
 ```java
 import com.bobblekeyboard.ime.BobbleIME;
@@ -155,12 +155,12 @@ class CustomIME extends BobbleIME {
 ### API Reference
 The BobbleIMESDK class comes with utility functions that can help you check, install and uninstall the module.
 
-#### 1.Check if module is installed or not
+#### Check if module is installed or not
 ```java
 boolean isModuleDownloaded = BobbleIMESDK.isDownloaded();
 ```
 
-#### 2. Initiate installation of module
+#### Initiate installation of module
 ```java
 BobbleIMESDK.install(context, new InstallCompleteListener(){
 	
@@ -176,7 +176,7 @@ BobbleIMESDK.install(context, new InstallCompleteListener(){
 });
 ```
 
-#### 3. Uninstall the module to free up space
+#### Uninstall the module to free up space
 ```java
 BobbleIMESDK.uninstall(context);
 ```
