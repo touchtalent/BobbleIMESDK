@@ -1,8 +1,7 @@
 
 # BobbleIMESDK via Dynamic Module
 
-This guide is for all app developers who wish to add a custom keyboard functionality in their Android apps using the Bobble IME (Input Method Editor) SDK via dynamic delivery. Before you begin integrating the SDK into your app, please email us at android.master@bobble.ai to get the license key in order to avail complete functionalities of the SDK.
-
+This guide is for all app developers who wish to add a custom keyboard functionality in their Android apps using the Bobble IME (Input Method Editor) SDK via dynamic delivery. 
 
 Note - Minimum version of supported Android platform is SDK level 23
 
@@ -28,10 +27,6 @@ The Support SDK wraps up all necessary steps to download and initialise the IME,
 
 When the user first downloads the client app, only the support library is shipped to them and the core library is yet to be downloaded. The client can  download the module either automatically or on-demand via user initiated action. You are free to implement your own logic of install/uninstall as per your need.
 
-Since the entry for keyboard has to be added in base manifest in the client app, the system will list the keyboard inside list of keyboards available in Languages & Input settings, even if the module isn't installed. In such cases, it is possible that the user may manually navigate to the settings and activate the keyboard even if it's not yet downloaded.
-
-Such situations are gracefully handled and when the keyboard popups, user will be shown a placeholder of downloading the module . You may optionally choose to override BobbleIME.onCreateDefaultView() to return your custom placeholder.
-
 Once the keyboard modules are succesfully downloaded, the keyboard starts functioning as expected.
 
 ### Step 1: Adding a dynamic module to your Project
@@ -39,6 +34,7 @@ Within Android Studio, navigate to **File -> New -> New Module** and follow on s
 Setup 1             |  Setup 2             |  Setup 3
 :-------------------------:|:-------------------------:|:-------------------------:
 ![](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module1.png)  |  ![](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module2.png)  |  ![](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/module3.png) 
+
 ### Step 2: Gradle setup
 If you are using Gradle to build your Android applications, you can pull the latest version of the SDK from JCenter as described below:
 
@@ -135,18 +131,6 @@ class CustomIME extends BobbleIME {
     @Override
     public void onCreate() {
         super.onCreate();
-    }
-    
-    /*
-     * Return a default view to be shown in place of keyboard  in-case the keyboard module hasn't yet been installed.
-     */
-    @Override
-    public View onCreateDefaultView(){
-        View view = LayoutInflater.from(this).inflate(R.layout.module_not_installed);
-    	view.setOnClickListener(v->{
-    		BobbleIMESDK.install(this,null);
-	});
-	return view;
     }
 }
 ```
