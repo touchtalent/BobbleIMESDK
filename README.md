@@ -9,14 +9,13 @@ To make it tailored for every application and user specific needs, you can integ
 ### **Option 1: Implementing And Packaging full SDK with the App:**
 In case, you wish to integrate via traditional method which packs the full SDK with your application, please refer to [Bobble IME Distribution Library](https://github.com/touchtalent/BobbleIMESDK/blob/master/Readme_Gradle.md). 
 
-* The SDK is bundled inside the app, and keyboard is registered in the system at the time of APK sinstallation itself.
-* It has a downside of increasing the SDK size by approx. 5MB. 
+* The SDK is bundled inside the app, and the keyboard gets registered in the system at the time of APK installation itself.
+* SDK Size would be approximately 5MB.
  
 ### **Option 2: Implementing The SDK By Packaging it in a Dynamic Module**
 In case, you wish to integrate via dynamic module method which downloads the SDK at runtime, please refer to [Bobble Dynamic IME Distribution Library](https://github.com/touchtalent/BobbleIMESDK/blob/master/Readme_Dynamic.md).
 
-* Dynamic Module Distribution allows user to download SDK as and when he actually needs it.
-* Once downloaded, it functions like the normal SDK.
+* Dynamic Module Distribution allows user to download SDK as and when he actually needs it. Once downloaded, it functions like a normal SDK.
 * It results in minimal increase in the APK Download size; by around 200KB.
 * This method is applicable only if you plan to distribute your application as an Android Bundle via Google Playstore.
  
