@@ -23,5 +23,5 @@ This Method allows you to use the power of Bobble Dynamic IME Distribution Libra
 * Once downloaded, it functions like the normal SDK, and is fully featured
 * Bobble Dynamic IME Distribution Library takes care of the complex logic needed for the dynamic module to work.
 
-Want to know more about this method, go to [Bobble Dynamic IME Distribution Library](https://github.com/rKDev20/BobbleIMESDK/blob/patch-1/README.md)
+Want to know more about this method, go to [Bobble Dynamic IME Distribution Library](https://github.com/touchtalent/BobbleIMESDK/blob/master/Readme_Dynamic.md)
  
