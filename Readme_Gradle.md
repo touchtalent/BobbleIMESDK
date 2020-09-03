@@ -1,7 +1,7 @@
 
 # BobbleIMESDK
 
-This guide is for all app developers who wish to add a custom keyboard functionality in their Android apps using the Bobble IME (Input Method Editor) SDK. via traditional method.
+This guide is for all app developers who wish to add a custom keyboard functionality in their Android apps using the Bobble IME (Input Method Editor) SDK via traditional method.
 
 Note - Minimum version of supported Android platform is SDK level 21
 
