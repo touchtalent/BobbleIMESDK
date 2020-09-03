@@ -1,104 +1,27 @@
-# BobbleIMESDK
+## **BOBBLE IME SDK**
+Bobble IME SDK is an Android Library which allows you to integrate power of BobbleKeyboard in your android application with minimal effort. The keyboard if fully featured Input Method Editor having support for various languages, Live Themes, Cool Fonts, Emoji, Clipboard, Bigmauji, Quick Reply Shortcuts, Swipe typing etc.
 
-This guide is for all app developers who wish to add a custom keyboard functionality in their Android apps using the Bobble IME (Input Method Editor) SDK. Before you begin integrating the SDK into your app, please email us at android.master@bobble.ai to get the license key in order to avail complete functionalities of the SDK.
+## **WHY USE IME?**
+* There is one common target of all the apps which is provide excellent user experience. we tend to do lot of things to work towards user experience, however we neglect one thing, which is used in almost all the apps which is input method or keyboard. no matter how hard we strive to improve the user experience, if the way by which the user is entering the data in the app is differing then app experience will differ, so the IME SDK provides consistant user experience
+* It is more secure, as the data entered by the user strictly stays with you, and not captured by any third party IME provider
+* You can provide your content and services at all the places in users phone without even opening the app.  
 
-Note - Minimum version of supported Android platform is SDK level 21
+To make it tailored for every application and user specific needs, you can use embed Bobble IME SDK in your application in two ways. 
 
-### Step 1: Adding the BobbleIME SDK to your Project
-##### Option 1: Pulling the Latest SDK via JCenter
-If you are using Gradle to build your Android applications, you can pull the latest version of the SDK from JCenter as described below:
+### **Implementing And Packaging full SDK with the App:**
+This is a simple Method which packs the full SDK with your application, and it ready to use as soon as your application is downloaded.
 
- - Include JCenter in your top-level build.gradle file:
+* It will cause the slight download size increase(approax 5MBs) depending on how you distribute the Application
+* The SDK is always available with your app, no matter how you distribute it.
 
-```java
-allprojects {
-    repositories {
-        jcenter()
-    }
-}
-```
-- Add the following line to the dependencies element in your application module’s build.gradle.
+Want to know more about this method, go to [Bobble IME Distribution Library](https://github.com/touchtalent/BobbleIMESDK/blob/dynamic_module/README.md)
+### **Implementing The SDK By Packaging it in a Dynamic Module**
+This Method allows you to use the power of Bobble Dynamic IME Distribution Library, which allows you to distribute the SDK as a Dynamic Module.
 
-```java
-implementation 'com.touchtalent.bobbleime:1.0.0'
-```
+* It Results in the minimal increase in the APK Download size.
+* Dynamic Module Distribution allows your user to download SDK as and when he actually needs it
+* Once downloaded, it functions like the normal SDK, and is fully featured
+* Bobble Dynamic IME Distribution Library takes care of the complex logic needed for the dynamic module to work.
 
-- Sync your Gradle project to ensure that the dependency is downloaded by the build system.
-
-
-##### Option 2: Adding the SDK Library to your Application Project
-
-Alternatively, you can download the latest version of BobbleIME’s SDK and copy the library to your application module’s libs/ directory.
-
-To add the library to your project’s dependencies, add this line to the dependencies element in your module’s <strong>build.gradle</strong>:
-
-```java
-implementation fileTree(dir: 'libs', include: ['*.aar'])
-```
-
-
-### Step 2: Adding Permissions
-##### Granting Permissions
-
-The SDK uses the permissions granted to your app in order to improve the typing experience, and in order to suggest the most relevant content to your users.
-We highly recommend that your app request the following permissions so that we can personalise user experience in a better way:
-```java
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.CAMERA" />
-<uses-permission android:name="android.permission.RECORD_AUDIO" />
-<uses-permission android:name="android.permission.READ_CONTACTS" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-```
-    
-    
-### Step 3: Manifest Changes
-The client needs to register the custom IME class in manifest as InputMethod service.
-
-```java
-<service
-    android:name=".CustomIME"
-    android:label="<Add your keyboard name here>"
-    android:permission="android.permission.BIND_INPUT_METHOD">
-    <intent-filter>
-        <action android:name="android.view.InputMethod" />
-    </intent-filter>
-</service>
-```
-
-### Step 4: Other Build Settings
-- Add option to not compress dictionary files by following lines in the android block of your gradle
-```java
-aaptOptions {
-	noCompress ".dict"
-}
-```
-
-- Enable data binding for the SDK components to work by adding 
-```java
-dataBinding {
-   enabled true
-}
-```
-
-### Step 5: Initialise SDK
-Inside onCreate() method of your Application class, initialise the SDK by calling
-```java
-BobbleIMESDK.initialise(applicationContext, <LICENSE_KEY>) 
-```
-If you don't have a Licence Key for your host app, you need to request one. Please note that Licence Key do not superimpose any expiration date, but each Licence Key is bounded to host app package name.
-
-### Step 6: Create your custom IME Class
-Last step would be to create the custom class declared in the manifest above.
-```java
-import com.bobblekeyboard.ime.BobbleIME;
-
-class CustomIME extends BobbleIME {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-}
-```
-
-
-
+Want to know more about this method, go to [Bobble Dynamic IME Distribution Library](https://github.com/rKDev20/BobbleIMESDK/blob/patch-1/README.md)
+ 
