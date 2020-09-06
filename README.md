@@ -12,7 +12,7 @@ In case, you wish to integrate via dynamic module method which downloads the SDK
 * Dynamic Module Distribution allows user to download SDK as and when he actually needs it. Once downloaded, it functions like a normal SDK.
 * It results in minimal increase in the APK Download size; by around 200KB.
 * This method is applicable only if you plan to distribute your application as an Android Bundle via Google Playstore.
-* We would be recommend this integration method to be used since Google would anyways be making app bundle compulsory by second half of 2021 (https://android-developers.googleblog.com/2020/08/recent-android-app-bundle-improvements.html)
+* We would recommend this integration method to be used since Google would anyways be making app bundle compulsory by second half of 2021 (https://android-developers.googleblog.com/2020/08/recent-android-app-bundle-improvements.html)
 
 ### **Option 2: Implementing And Packaging full SDK with the App:**
 In case, you wish to integrate via traditional method which packs the full SDK with your application, please refer to [Bobble IME Distribution Library](https://github.com/touchtalent/BobbleIMESDK/blob/master/Readme_Gradle.md). 
