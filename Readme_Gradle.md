@@ -1,4 +1,5 @@
 
+  
 # BobbleIMESDK
 
 This guide is for all app developers who wish to add a custom keyboard functionality in their Android apps using the Bobble IME (Input Method Editor) SDK via traditional method.
@@ -101,5 +102,31 @@ class CustomIME extends BobbleIME {
 }
 ```
 
+### APIs
 
+#### Check if keyboard is enabled
+```java
+boolean BobbleIMESDK.isKeyboardEnabled()
+```
+This API can be used to check if the keyboard is enabled inside the global input method settings.
 
+#### Check if keyboard is selected
+```java
+boolean BobbleIMESDK.isKeyboardSelected()
+```
+This API can be used to check if the keyboard is the current selected input method editor in the system.
+
+#### Initiate keyboard enable and selection
+```java
+void BobbleIMESDK.install(new IMEInstallListener() {
+    @Override
+    public void onComplete(IMEInstallStatus status) {
+        //status could be SELECTED, ENABLED, NONE.
+    }
+});
+```
+Use the API to start the keyboard enable and selection process. Once process is complete, use callback to check the status.
+
+ - SELECTED : User enabled and selected the keyboard as well.
+ - ENABLED : User just enabled the keyboard but did not select it as the default one.
+ - NONE : User did not do anything and returned from the settings pages. This can be used to initiate any client side flow for educating users on how to enable it.
