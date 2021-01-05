@@ -29,7 +29,7 @@ allprojects {
 - Add the following line to the dependencies element in your application module’s build.gradle.
 
 ```java
-    implementation 'com.touchtalent.bobblekeyboard:keyboard:1.0.0'
+    implementation 'com.touchtalent.bobblekeyboard:keyboard:1.1.0'
 
 ```
 
