@@ -7,22 +7,30 @@ This guide is for all app developers who wish to add a custom keyboard functiona
 Note - Minimum version of supported Android platform is SDK level 21
 
 ### Step 1: Adding the BobbleIME SDK to your Project
-##### Option 1: Pulling the Latest SDK via JCenter
-If you are using Gradle to build your Android applications, you can pull the latest version of the SDK from JCenter as described below:
+##### Option 1: Pulling the Latest SDK via Maven
+If you are using Gradle to build your Android applications, you can pull the latest version of the SDK from Maven as described below:
 
- - Include JCenter in your top-level build.gradle file:
+ - Include Maven in your top-level build.gradle file along with the credentials(Read URL and Read password):
 
 ```java
 allprojects {
     repositories {
-        jcenter()
+        maven {
+            url myMavenRepoReadUrl
+            credentials {
+                username 'myMavenRepo'
+                password myMavenRepoReadPassword
+            }
+        }
     }
 }
+
 ```
 - Add the following line to the dependencies element in your application module’s build.gradle.
 
 ```java
-implementation 'com.touchtalent.bobbleime:1.1.0'
+    implementation 'com.touchtalent.bobblekeyboard:keyboard:1.0.0'
+
 ```
 
 - Sync your Gradle project to ensure that the dependency is downloaded by the build system.
