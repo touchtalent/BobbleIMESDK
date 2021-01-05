@@ -93,9 +93,9 @@ dataBinding {
 ### Step 5: Initialise SDK
 Inside onCreate() method of your Application class, initialise the SDK by calling
 ```java
-BobbleIMESDK.initialise(applicationContext, <LICENSE_KEY>) 
+BobbleIme.initialise(applicationContext) 
 ```
-If you don't have a Licence Key for your host app, you need to request one. Please note that Licence Key do not superimpose any expiration date, but each Licence Key is bounded to host app package name.
+
 
 ### Step 6: Create your custom IME Class
 Last step would be to create the custom class declared in the manifest above.
@@ -114,19 +114,19 @@ class CustomIME extends BobbleIME {
 
 #### Check if keyboard is enabled
 ```java
-boolean BobbleIMESDK.isKeyboardEnabled()
+boolean BobbleIme.isKeyboardEnabled()
 ```
 This API can be used to check if the keyboard is enabled inside the global input method settings.
 
 #### Check if keyboard is selected
 ```java
-boolean BobbleIMESDK.isKeyboardSelected()
+boolean BobbleIme.isKeyboardSelected()
 ```
 This API can be used to check if the keyboard is the current selected input method editor in the system.
 
 #### Initiate keyboard enable and selection
 ```java
-void BobbleIMESDK.install(new IMEInstallListener() {
+void BobbleIme.install(new IMEInstallListener() {
     @Override
     public void onComplete(IMEInstallStatus status) {
         //status could be SELECTED, ENABLED, NONE.
