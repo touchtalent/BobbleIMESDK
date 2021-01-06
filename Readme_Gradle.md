@@ -7,8 +7,7 @@ This guide is for all app developers who wish to add a custom keyboard functiona
 Note - Minimum version of supported Android platform is SDK level 21
 
 ### Step 1: Adding the BobbleIME SDK to your Project
-##### Option 1: Pulling the Latest SDK via Maven
-If you are using Gradle to build your Android applications, you can pull the latest version of the SDK from Maven as described below:
+Pull the latest version of the SDK from Maven as described below:
 
  - Include Maven in your top-level build.gradle file along with the credentials(Read URL and Read password):
 
@@ -33,17 +32,6 @@ allprojects {
 ```
 
 - Sync your Gradle project to ensure that the dependency is downloaded by the build system.
-
-
-##### Option 2: Adding the SDK Library to your Application Project
-
-Alternatively, you can download the latest version of BobbleIME’s SDK and copy the library to your application module’s libs/ directory.
-
-To add the library to your project’s dependencies, add this line to the dependencies element in your module’s <strong>build.gradle</strong>:
-
-```java
-implementation fileTree(dir: 'libs', include: ['*.aar'])
-```
 
 
 ### Step 2: Adding Permissions
@@ -79,14 +67,7 @@ The client needs to register the custom IME class in manifest as InputMethod ser
 - Add option to not compress dictionary files by following lines in the android block of your gradle
 ```java
 aaptOptions {
-	noCompress ".dict"
-}
-```
-
-- Enable data binding for the SDK components to work by adding 
-```java
-dataBinding {
-   enabled true
+    noCompress ".dict"
 }
 ```
 
@@ -106,7 +87,7 @@ import com.touchtalent.bobbleime.services.BobbleIME;
 class CustomIME extends BobbleIME {
     @Override
     public void onQuickAccessIconTap() {
-        Intent intent = new Intent(this, DeepLinkActivity.class);
+        Intent intent = new Intent(this, <deep_link_activity>.class);
         intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
