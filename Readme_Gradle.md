@@ -87,7 +87,7 @@ import com.touchtalent.bobbleime.services.BobbleIME;
 class CustomIME extends BobbleIME {
     @Override
     public void onQuickAccessIconTap() {
-        Intent intent = new Intent(this, DeepLinkActivity.class);
+        Intent intent = new Intent(this, <deep_link_activity>.class);
         intent.addFlags(FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
