@@ -53,10 +53,8 @@ The SDK uses the permissions granted to your app in order to improve the typing 
 We highly recommend that your app request the following permissions so that we can personalise user experience in a better way:
 ```java
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 <uses-permission android:name="android.permission.READ_CONTACTS" />
-<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
     
     
