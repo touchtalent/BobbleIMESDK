@@ -93,7 +93,7 @@ dataBinding {
 ### Step 5: Initialise SDK
 Inside onCreate() method of your Application class, initialise the SDK by calling
 ```java
-BobbleIme.initialise(applicationContext) 
+BobbleIMESDK.initialise(applicationContext) 
 ```
 
 
