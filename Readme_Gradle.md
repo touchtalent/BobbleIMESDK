@@ -101,7 +101,7 @@ BobbleIme.initialise(applicationContext)
 
 ### Step 6: Create your custom IME Class
 Create a custom class declared in the manifest above.
-Override the onQuickAccessIconTap() function to handle the clicks on branded icon on the keyboard.
+Override the ```onQuickAccessIconTap()``` function to handle the clicks on branded icon on the keyboard.
 ```java
 import com.touchtalent.bobbleime.services.BobbleIME;
 
