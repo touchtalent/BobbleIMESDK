@@ -125,7 +125,9 @@ Last step would be to initiate keyboard enabling flow. Create a new activity by 
 
 The following flowchart shows the enabling process and the state in which each callback is fired:
 
-![Flowchart](flowchart.png)
+<p align="center">
+  <img src="flowchart.png" width="350" alt="Bobble enabling flowchart">
+</p>
 
  P.S - The activity extending ```BobbleEnablerActivity``` may restart during the enabling flow because of system limitations. Care has to be taken to maintain activity state. If user presses back on this screen, it is possible that the system's IME chooser activity opens instead of the parent activity. To prevent this and maintain the navigation consider adding this in your activity :
 
