@@ -1,0 +1,3 @@
+include ':bobblekeyboard'
+include ':app'
+rootProject.name = "Keyboard Playground"
