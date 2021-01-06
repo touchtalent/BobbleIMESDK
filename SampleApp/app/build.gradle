@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\Android\\temporary.jks')
+            storePassword 'temporary'
+            keyAlias 'temporary'
+            keyPassword 'temporary'
+        }
+    }
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    aaptOptions {
+        noCompress ".dict"
+    }
+    defaultConfig {
+        applicationId "com.bobble.keyboardplayground"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 3
+        versionName "1.2"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+//    implementation fileTree(dir: "libs", include: ["*.aar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    testImplementation 'junit:junit:4.13'
+    implementation 'com.touchtalent.bobblekeyboard:keyboard:1.0.0'
+}

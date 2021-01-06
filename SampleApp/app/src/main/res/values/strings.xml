@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bobble SDK DEMO</string>
+    <string name="custom_input_method">Bobble SDK DEMO</string>
+    <string name="title_bobblekeyboard">Bobble Keyboard</string>
+</resources>
