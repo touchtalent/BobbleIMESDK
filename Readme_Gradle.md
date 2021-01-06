@@ -16,7 +16,7 @@ If you are using Gradle to build your Android applications, you can pull the lat
 allprojects {
     repositories {
         maven {
-            url myMavenRepoReadUrl
+            url <getReadUrl>
             credentials {
                 username 'myMavenRepo'
                 password <getPassword>
@@ -71,6 +71,9 @@ The client needs to register the custom IME class in manifest as InputMethod ser
     <intent-filter>
         <action android:name="android.view.InputMethod" />
     </intent-filter>
+    <meta-data 
+    	android:name="android.view.im"
+       	android:resource="@xml/bobble_ime" />
 </service>
 ```
 
@@ -100,7 +103,7 @@ BobbleIme.initialise(applicationContext)
 Create a custom class declared in the manifest above.
 Override the onQuickAccessIconTap() function to handle the clicks on branded icon on the keyboard.
 ```java
-import com.touchtalent.bobbleime.BobbleIME;
+import com.touchtalent.bobbleime.services.BobbleIME;
 
 class CustomIME extends BobbleIME {
     @Override
@@ -126,7 +129,7 @@ Last step would be to initiate keyboard enabling flow. Create a new activity by 
 The following flowchart shows the enabling process and the state in which each callback is fired:
 
 <p align="center">
-  <img src="flowchart.png" width="350" alt="Bobble enabling flowchart">
+  <img src="flowchart.png" width="400" alt="Bobble enabling flowchart">
 </p>
 
  P.S - The activity extending ```BobbleEnablerActivity``` may restart during the enabling flow because of system limitations. Care has to be taken to maintain activity state. If user presses back on this screen, it is possible that the system's IME chooser activity opens instead of the parent activity. To prevent this and maintain the navigation consider adding this in your activity :
