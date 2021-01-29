@@ -15,6 +15,9 @@ Pull the latest version of the SDK from Maven as described below:
 allprojects {
     repositories {
         maven {
+            url "http://dl.appnext.com/"
+        }
+        maven {
             url <getReadUrl>
             credentials {
                 username 'myMavenRepo'
@@ -28,7 +31,7 @@ allprojects {
 - Add the following line to the dependencies element in your application module’s build.gradle.
 
 ```java
-    implementation 'com.touchtalent.bobblekeyboard:keyboard:1.1.0'
+    implementation 'com.touchtalent.bobblekeyboard:keyboard:2.0.0'
 ```
 
 - Sync your Gradle project to ensure that the dependency is downloaded by the build system.
@@ -52,7 +55,8 @@ The client needs to register the custom IME class in manifest as InputMethod ser
 ```java
 <service
     android:name=".CustomIME"
-    android:label="<Add your keyboard name here>"
+    android:label="Bobble AI Keyboard"
+    android:icon="@drawable/bobble_keyboard_icon"
     android:permission="android.permission.BIND_INPUT_METHOD">
     <intent-filter>
         <action android:name="android.view.InputMethod" />
@@ -137,4 +141,18 @@ This API can be used to check if the keyboard is enabled inside the global input
 boolean BobbleIMESDK.isKeyboardSelected()
 ```
 This API can be used to check if the keyboard is the current selected input method editor in the system.
+
+#### Set default language for SDK
+```java
+boolean BobbleIMESDK.setDefaultLanguage(BobbleSupportedLanguage language)
+```
+Supported languages :
+```java
+enum BobbleSupportedLanguage{
+    ENGLISH,
+    BAHASA
+}
+```
+
+This API can be used to set default language for SDK.
 

@@ -18,7 +18,7 @@ import com.touchtalent.bobbleime.sdk.BobbleIMESDK;
  * This activity is the entry point for starting the enabling flow.
  * Users can be shown some graphics along with feature list and a button to enable the keyboard
  */
-public class ActivationActivity extends BobbleEnablerActivity implements View.OnClickListener {
+public class ActivationActivity extends BaseActivity implements View.OnClickListener {
     private static final String TAG = ActivationActivity.class.getSimpleName();
     Button install;
     EditText tryOut;
