@@ -34,6 +34,9 @@ public class MainActivity extends BaseActivity {
             finish();
             startActivity(new Intent(this, MainActivity.class));
         });
+        findViewById(R.id.webView).setOnClickListener(v->{
+            startActivity(new Intent(this, WebViewActivity.class));
+        });
     }
 
     @Override
