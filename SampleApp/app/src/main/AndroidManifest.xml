@@ -44,6 +44,7 @@
         </service>
 
         <activity android:name=".activity.ActivationActivity" />
+        <activity android:name=".activity.WebViewActivity" />
     </application>
 
 </manifest>

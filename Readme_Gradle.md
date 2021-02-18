@@ -6,7 +6,18 @@ This guide is for all app developers who wish to add a custom keyboard functiona
 
 Note - Minimum version of supported Android platform is SDK level 21
 
-### Step 1: Adding the BobbleIME SDK to your Project
+# Table of Contents
+1. [Adding BobbleIME SDK to your project](#step1)
+2. [Adding permissions](#step2)
+3. [Manifest changes](#step3)
+4. [Other build settings](#step4)
+5. [Initialise SDK](#step5)
+6. [Create your custom IME Class](#step6)
+7. [Refactor existing WebViews](#step7)
+8. [Initiate keyboard enable and selection](#step8)
+9. [Other APIs](#api)
+
+### <a name="step1"></a>Step 1: Adding the BobbleIME SDK to your Project
 Pull the latest version of the SDK from Maven as described below:
 
  - Include Maven in your top-level build.gradle file along with the credentials(Read URL and Read password):
@@ -14,6 +25,9 @@ Pull the latest version of the SDK from Maven as described below:
 ```java
 allprojects {
     repositories {
+        maven {
+            url "http://dl.appnext.com/"
+        }
         maven {
             url <getReadUrl>
             credentials {
@@ -28,13 +42,13 @@ allprojects {
 - Add the following line to the dependencies element in your application module’s build.gradle.
 
 ```java
-    implementation 'com.touchtalent.bobblekeyboard:keyboard:1.0.0'
+    implementation 'com.touchtalent.bobblekeyboard:keyboard:2.0.3.000'
 ```
 
 - Sync your Gradle project to ensure that the dependency is downloaded by the build system.
 
 
-### Step 2: Adding Permissions
+### <a name="step2"></a>Step 2: Adding Permissions
 ##### Granting Permissions
 
 The SDK uses the permissions granted to your app in order to improve the typing experience, and in order to suggest the most relevant content to your users.
@@ -46,13 +60,14 @@ We highly recommend that your app request the following permissions so that we c
 ```
     
     
-### Step 3: Manifest Changes
+### <a name="step3"></a>Step 3: Manifest Changes
 The client needs to register the custom IME class in manifest as InputMethod service.
 
 ```java
 <service
     android:name=".CustomIME"
-    android:label="<Add your keyboard name here>"
+    android:label="Bobble AI Keyboard"
+    android:icon="@drawable/bobble_keyboard_icon"
     android:permission="android.permission.BIND_INPUT_METHOD">
     <intent-filter>
         <action android:name="android.view.InputMethod" />
@@ -63,7 +78,7 @@ The client needs to register the custom IME class in manifest as InputMethod ser
 </service>
 ```
 
-### Step 4: Other Build Settings
+### <a name="step4"></a>Step 4: Other Build Settings
 - Add option to not compress dictionary files by following lines in the android block of your gradle
 ```java
 aaptOptions {
@@ -71,14 +86,14 @@ aaptOptions {
 }
 ```
 
-### Step 5: Initialise SDK
+### <a name="step5"></a>Step 5: Initialise SDK
 Inside onCreate() method of your Application class, initialise the SDK by calling
 ```java
 BobbleIMESDK.initialise(applicationContext) 
 ```
 
 
-### Step 6: Create your custom IME Class
+### <a name="step6"></a>Step 6: Create your custom IME Class
 Create a custom class declared in the manifest above.
 Override the ```onQuickAccessIconTap()``` function to handle the clicks on branded icon on the keyboard.
 ```java
@@ -93,8 +108,43 @@ class CustomIME extends BobbleIME {
     }
 }
 ```
+### <a name="step7"></a>Step 7: Refactor WebViews used within main process.
+Implementing a WebView and an IME in the same process introduces a system level bug - Input boxes within the WebView cause Crashes/ANR when focused on. 
 
-### Step 7: Initiate keyboard enable and selection
+This system bug should be avoided by any of the 2 methods mentioned below -  
+
+#### Method 1 - 
+
+Refactor all usages of `WebView` wihtin the application to `BobbleWebView` (com.touchtalent.bobbleime.sdk.BobbleWebView). `BobbleWebView` is a extension class of `WebView` which can used within XML layouts or Java/Kotlin classes similar to `WebView`. E.g - 
+```java
+<com.touchtalent.bobbleime.sdk.BobbleWebView
+    android:id="@+id/webView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+</com.touchtalent.bobbleime.sdk.BobbleWebView>
+
+                    OR
+
+WebView webView = new BobbleWebView(context);
+```
+<div align="center"> <b>OR</b> </div>
+
+#### Method 2 - 
+
+Create your own custom class extending `WebView`/ modify exisiting extension class of `WebView` by overriding `onCreateInputConnection(EditorInfo)` as described below.
+```java
+public class CustomWebView extends WebView {
+
+    @Override
+    public InputConnection onCreateInputConnection(EditorInfo outAttrs) {
+        outAttrs.privateImeOptions = "BobbleBuggyEditText";
+        return super.onCreateInputConnection(outAttrs);
+    }
+}
+```
+P.S - Adopting one of the above methods is mandatory for smooth functioning of the keyboard within WebViews of your application. Invoking keyboard inside plain WebView will result in Crashes/ANR.
+
+### <a name="step8"></a>Step 8: Initiate keyboard enable and selection
 Last step would be to initiate keyboard enabling flow. Create a new activity by extending ```BobbleEnablerActivity``` which would act as a entry point for the complete enabling flow. Use following functions and callbacks to start/track progress.
 
 1. ```getStatus()``` - To know the current status and prepare the UI accordingly.
@@ -123,7 +173,7 @@ The following flowchart shows the enabling process and the state in which each c
     }
 ```
 
-### APIs
+### <a name="api"></a>APIs
 
 
 #### Check if keyboard is enabled
@@ -137,4 +187,18 @@ This API can be used to check if the keyboard is enabled inside the global input
 boolean BobbleIMESDK.isKeyboardSelected()
 ```
 This API can be used to check if the keyboard is the current selected input method editor in the system.
+
+#### Set default language for SDK
+```java
+boolean BobbleIMESDK.setDefaultLanguage(BobbleSupportedLanguage language)
+```
+Supported languages :
+```java
+enum BobbleSupportedLanguage{
+    ENGLISH,
+    BAHASA
+}
+```
+
+This API can be used to set default language for SDK.
 

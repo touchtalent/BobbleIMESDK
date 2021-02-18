@@ -14,6 +14,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url "http://dl.appnext.com/" }
         maven {
             url myMavenRepoReadUrl
             credentials {
