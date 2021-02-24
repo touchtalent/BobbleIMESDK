@@ -67,7 +67,7 @@ The client needs to register the custom IME class in manifest as InputMethod ser
 <service
     android:name=".CustomIME"
     android:label="Bobble AI Keyboard"
-    android:icon="@drawable/bobble_keyboard_icon"
+    android:icon="@mipmap/bobble_keyboard_icon"
     android:permission="android.permission.BIND_INPUT_METHOD">
     <intent-filter>
         <action android:name="android.view.InputMethod" />
