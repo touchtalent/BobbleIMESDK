@@ -9,7 +9,7 @@ android {
             keyPassword 'temporary'
         }
     }
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "29.0.3"
     aaptOptions {
         noCompress ".dict"
@@ -17,8 +17,8 @@ android {
     defaultConfig {
         applicationId "com.bobble.keyboardplayground"
         minSdkVersion 19
-        targetSdkVersion 29
-        versionCode 3
+        targetSdkVersion 30
+        versionCode 999999992
         versionName "1.2"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -42,5 +42,6 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     testImplementation 'junit:junit:4.13'
-    implementation 'com.touchtalent.bobblekeyboard:keyboard:2.0.3.000'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.touchtalent.bobblekeyboard:keyboard:2.1.0.000'
 }
