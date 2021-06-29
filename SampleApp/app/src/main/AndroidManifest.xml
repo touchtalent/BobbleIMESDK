@@ -28,9 +28,6 @@
                 android:name="android.view.im"
                 android:resource="@xml/bobble_ime" />
         </service>
-
-        <activity android:name=".activity.ActivationActivity" />
-        <activity android:name=".activity.WebViewActivity" />
     </application>
 
 </manifest>
