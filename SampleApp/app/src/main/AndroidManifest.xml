@@ -16,20 +16,6 @@
         android:theme="@style/AppTheme"
         android:windowSoftInputMode="adjustPan|adjustResize">
 
-        <activity
-            android:name=".activity.MainActivity"
-            android:launchMode="singleInstance">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".activity.DeepLinkActivity"
-            android:label="DeepLinkActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-
         <service
             android:name=".services.KeyboardService"
             android:label="@string/custom_input_method"
