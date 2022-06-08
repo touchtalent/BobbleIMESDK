@@ -202,3 +202,9 @@ enum BobbleSupportedLanguage{
 
 This API can be used to set default language for SDK.
 
+#### Method to set encrypted MSISDN in SDK
+```java
+void setEncryptedMsisdn(@NonNull String msisdn)
+```
+This API can be used to provide encrypted MSISDN in string format
+
